@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+     <meta charset="UTF-8">
+     <title>Download Files</title>
+             <style>
+         body { font-family: sans-serif; }
+         .download-item { margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+         .download-item strong { display: block; margin-bottom: 5px; }
+         .download-link { display: inline-block; padding: 8px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 3px; }
+         .download-link:hover { background-color: #0056b3; }
+         .not-ready { color: #777; font-style: italic; }
+     </style>
+ </head>
+ <body>
+     <h1>Download Your Files</h1>
+
+     <p>Your conversion request is being processed. Download links will appear below when the files are ready. This page doesn't update automatically, please refresh manually.</p>
+
+     <div class="download-item">
+         <strong>Converted Video:</strong>
+         <span>{{ video_filename }}</span><br>
+         {% if video_available %}
+             <a href="{{ video_download_url }}" class="download-link">Download Video</a>
+         {% else %}
+             <span class="not-ready">Video file is not yet available. Please check back.</span>
+         {% endif %}
+     </div>
+
+     <div class="download-item">
+         <strong>Transcription:</strong>
+         <span>{{ transcription_filename }}</span><br>
+         {% if transcription_available %}
+             <a href="{{ transcription_download_url }}" class="download-link">Download Transcription (.json)</a>
+         {% else %}
+             <span class="not-ready">Transcription file is not yet available. It may take a few moments after the video is ready. Please refresh the page to check again.</span>
+         {% endif %}
+     </div>
+
+     <hr>
+     <a href="/">Convert another video</a>
+
+ </body>
+ </html>

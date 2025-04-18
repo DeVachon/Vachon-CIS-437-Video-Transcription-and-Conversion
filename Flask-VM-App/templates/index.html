@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Video Transcriber / Converter</title>
+</head>
+<body>
+    <h1>Upload a Video for Transcription and Conversion</h1>
+    <form action="/convert" method="post" enctype="multipart/form-data">
+        <input type="file" name="video" accept="video/*" required>
+        <br>
+        <label for="format">Choose output format:</label>
+        <select name="format" id="format" required>
+            <option value="mp4">MP4</option>
+	    <option value="mov">MOV</option>
+            <option value="avi">AVI</option>
+            <option value="mkv">MKV</option>
+        </select>
+        <br><br>
+        <button type="submit">Convert / Transcribe</button>
+    </form>
+</body>
+</html>
+
